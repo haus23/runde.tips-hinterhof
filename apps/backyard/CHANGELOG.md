@@ -1,5 +1,13 @@
 # backyard
 
+## 0.0.14
+
+### Patch Changes
+
+- Add lib package dependency.
+- Updated dependencies
+  - lib@0.0.8
+
 ## 0.0.13
 
 ### Patch Changes

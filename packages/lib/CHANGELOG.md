@@ -1,5 +1,12 @@
 # lib
 
+## 0.0.8
+
+### Patch Changes
+
+- Add exports.
+- Make extra question rule required.
+
 ## 0.0.7
 
 ### Patch Changes

@@ -22,6 +22,7 @@ importers:
       '@vitejs/plugin-react': ^2.1.0
       autoprefixer: ^10.4.12
       firebase: ^9.10.0
+      lib: workspace:*
       postcss: ^8.4.16
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -38,6 +39,7 @@ importers:
       '@headlessui/react': 1.7.2_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 2.0.11_react@18.2.0
       firebase: 9.10.0
+      lib: link:../../packages/lib
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.36.1_react@18.2.0

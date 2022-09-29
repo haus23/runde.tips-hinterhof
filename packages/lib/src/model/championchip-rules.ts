@@ -10,5 +10,5 @@ export interface ChampionshipRules extends BaseModel {
   tipRuleId: TipRuleId;
   matchRuleId: MatchRuleId;
   roundRuleId: RoundRuleId;
-  extraQuestionRuleId?: ExtraQuestionRuleId;
+  extraQuestionRuleId: ExtraQuestionRuleId;
 }
