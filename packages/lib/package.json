@@ -4,10 +4,14 @@
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "scripts": {
+    "test": "vitest"
+  },
   "dependencies": {
     "firebase": "^9.10.0"
   },
   "devDependencies": {
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "vitest": "^0.23.4"
   }
 }
