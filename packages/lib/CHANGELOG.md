@@ -1,5 +1,17 @@
 # lib
 
+## 0.0.7
+
+### Patch Changes
+
+- Remove unneeded vite dependency.
+- Move match and tip models to lib.
+- Add calculators for tips and matches.
+- Create refactored rule types.
+- Add missing repository tasks.
+- Add tests
+- Add test setup.
+
 ## 0.0.6
 
 ### Patch Changes
