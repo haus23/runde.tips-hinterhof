@@ -1,4 +1,7 @@
 import { RouteObject } from 'react-router-dom';
+
+import AppShell from './app/app-shell';
+
 import ChampionshipView from './app/championship';
 import ChampionshipPlayersView from './app/championship-players';
 import ChampionshipCreateView from './app/championship/create';
@@ -8,7 +11,6 @@ import PlayersView from './app/domain/players';
 import RulesView from './app/domain/rules';
 import TeamsView from './app/domain/teams';
 import UsersView from './app/domain/users';
-import Layout from './app/layout';
 import Login from './app/login';
 import Logout from './app/logout';
 import MatchesView from './app/matches';
@@ -22,7 +24,7 @@ const appRoutes: RouteObject[] = [
   },
   {
     path: '/',
-    element: <Layout />,
+    element: <AppShell />,
     children: [
       { index: true, element: <Dashboard /> },
       { path: 'turnier', element: <ChampionshipView /> },
