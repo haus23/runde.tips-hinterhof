@@ -1,4 +1,5 @@
-import { RouteObject } from 'react-router-dom';
+import { LoaderFunction, redirect, RouteObject } from 'react-router-dom';
+import { auth, collection } from 'lib';
 
 import AppShell from './app/app-shell';
 
@@ -17,6 +18,20 @@ import MatchesView from './app/matches';
 import ProfileView from './app/profile';
 import TipsView from './app/tips';
 
+const rootLoader: LoaderFunction = async () => {
+  // Load small users collection early and eager
+  const users = await collection('users').get();
+
+  // Auth state now sure, so check
+  if (auth.currentUser === null) {
+    return redirect('/login');
+  }
+
+  return {
+    users,
+  };
+};
+
 const appRoutes: RouteObject[] = [
   {
     path: '/login',
@@ -25,6 +40,7 @@ const appRoutes: RouteObject[] = [
   {
     path: '/',
     element: <AppShell />,
+    loader: rootLoader,
     children: [
       { index: true, element: <Dashboard /> },
       { path: 'turnier', element: <ChampionshipView /> },
