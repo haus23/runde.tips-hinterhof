@@ -40,6 +40,7 @@ const appRoutes: RouteObject[] = [
   {
     path: '/',
     element: <AppShell />,
+    id: 'root',
     loader: rootLoader,
     children: [
       { index: true, element: <Dashboard /> },

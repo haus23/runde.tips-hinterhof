@@ -1,6 +1,6 @@
 {
   "name": "tailwind-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "devDependencies": {
     "tailwindcss": "^3.1.8"

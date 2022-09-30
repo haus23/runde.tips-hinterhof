@@ -1,8 +1,6 @@
-import { useAuth } from '@/hooks/use-auth';
+import { signOut } from 'lib';
 
 export default function Logout() {
-  const { signOut } = useAuth();
-
   signOut();
 
   return null;
