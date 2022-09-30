@@ -17,6 +17,10 @@ import TipsView from './app/tips';
 
 const appRoutes: RouteObject[] = [
   {
+    path: '/login',
+    element: <Login />,
+  },
+  {
     path: '/',
     element: <Layout />,
     children: [
@@ -32,7 +36,6 @@ const appRoutes: RouteObject[] = [
       { path: 'domain/ligen', element: <LeaguesView /> },
       { path: 'domain/regelwerke', element: <RulesView /> },
       { path: 'domain/benutzer', element: <UsersView /> },
-      { path: 'login', element: <Login /> },
       { path: 'logout', element: <Logout /> },
     ],
   },
