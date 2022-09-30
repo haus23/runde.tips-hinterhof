@@ -1,5 +1,11 @@
 # backyard
 
+## 0.0.20
+
+### Patch Changes
+
+- Navigate to login after logout.
+
 ## 0.0.19
 
 ### Patch Changes
