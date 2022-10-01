@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import Button from '@/components/button';
 import TextField from '@/components/form/text-field';
 
-import { useProfile, Profile } from '@/hooks/use-profile';
+import { useProfile } from '@/hooks/use-profile';
 import { notify } from '@/utils/notify';
+import { Profile } from '@/model/profile';
 
 export default function ProfileView() {
   const { profile, updateDisplayName } = useProfile();
