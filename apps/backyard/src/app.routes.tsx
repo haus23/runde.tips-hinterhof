@@ -28,7 +28,7 @@ const appRoutes: RouteObject[] = [
     element: <AppShell />,
     loader: async () => {
       if (!auth.currentUser) {
-        return redirect('/login');
+        return redirect('/login?from=' + window.location.pathname);
       }
     },
     children: [
