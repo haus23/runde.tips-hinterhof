@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form';
 import Button from '@/components/button';
 import TextField from '@/components/form/text-field';
 
-import { useProfile } from '@/hooks/use-profile';
-import { Profile } from '@/model/profile';
+import { useProfile, Profile } from '@/hooks/use-profile';
 import { notify } from '@/utils/notify';
 
 export default function ProfileView() {
