@@ -1,5 +1,5 @@
 import { collection } from '@/firebase/db/repository/collection';
-import { Player } from '@/model/master-data/player';
+import { Player } from 'lib';
 import { atom } from 'recoil';
 
 export const playersState = atom<Player[]>({
