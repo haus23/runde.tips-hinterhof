@@ -1,7 +1,7 @@
 import { createEntity } from '@/firebase/db/repository/create-entity';
 import { updateEntity } from '@/firebase/db/repository/update-entity';
 import { Player } from '@/model/domain/player';
-import { playersState } from '@/states/domain/players-state';
+import { playersState } from '@/state/domain/players-state';
 import { useRecoilValue } from 'recoil';
 
 export function usePlayers() {

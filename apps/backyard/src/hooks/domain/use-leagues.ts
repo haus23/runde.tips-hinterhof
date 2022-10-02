@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { createEntity } from '@/firebase/db/repository/create-entity';
 import { updateEntity } from '@/firebase/db/repository/update-entity';
 import { League } from '@/model/domain/league';
-import { leaguesState } from '@/states/domain/leagues-state';
+import { leaguesState } from '@/state/domain/leagues-state';
 
 export function useLeagues() {
   const leagues = useRecoilValue(leaguesState);
