@@ -51,29 +51,29 @@ const navLinks: {
   },
 ];
 
-const domainLinks: {
+const masterDataLinks: {
   to: string;
   label: string;
 }[] = [
   {
-    to: './domain/spieler',
+    to: './stammdaten/turniere',
+    label: 'Turniere',
+  },
+  {
+    to: './stammdaten/spieler',
     label: 'Spieler',
   },
   {
-    to: './domain/teams',
+    to: './stammdaten/teams',
     label: 'Teams',
   },
   {
-    to: './domain/ligen',
+    to: './stammdaten/ligen',
     label: 'Ligen',
   },
   {
-    to: './domain/regelwerke',
+    to: './stammdaten/regelwerke',
     label: 'Regelwerke',
-  },
-  {
-    to: './domain/benutzer',
-    label: 'Benutzer',
   },
 ];
 
@@ -121,7 +121,7 @@ export default function AppNavbar() {
               Stammdaten
             </span>
             <nav className="space-y-1 px-2">
-              {domainLinks.map((item) => (
+              {masterDataLinks.map((item) => (
                 <NavLink
                   key={item.label}
                   to={item.to}
