@@ -3,21 +3,22 @@ import { redirect, RouteObject } from 'react-router-dom';
 
 import AppShell from './app/app-shell';
 
+import Dashboard from './app/current-data/dashboard';
+import ChampionshipView from './app/current-data/championship';
+import ChampionshipPlayersView from './app/current-data/players';
+import MatchesView from './app/current-data/matches';
+import TipsView from './app/current-data/tips';
+
 import ChampionshipsView from './app/master-data/championships';
+import ChampionshipsCreateView from './app/master-data/championships/create';
 import PlayersView from './app/master-data/players';
 import TeamsView from './app/master-data/teams';
 import LeaguesView from './app/master-data/leagues';
 import RulesView from './app/master-data/rules';
 
-import ChampionshipView from './app/championship';
-import ChampionshipPlayersView from './app/championship-players';
-import ChampionshipCreateView from './app/championship/create';
-import Dashboard from './app/dashboard';
+import ProfileView from './app/profile';
 import Login from './app/login';
 import Logout from './app/logout';
-import MatchesView from './app/matches';
-import ProfileView from './app/profile';
-import TipsView from './app/tips';
 
 const appRoutes: RouteObject[] = [
   {
@@ -33,7 +34,15 @@ const appRoutes: RouteObject[] = [
       }
     },
     children: [
-      { index: true, element: <Dashboard /> },
+      {
+        children: [
+          { index: true, element: <Dashboard /> },
+          { path: 'turnier', element: <ChampionshipView /> },
+          { path: 'mitspieler', element: <ChampionshipPlayersView /> },
+          { path: 'spiele', element: <MatchesView /> },
+          { path: 'tipps', element: <TipsView /> },
+        ],
+      },
       {
         path: 'stammdaten',
         children: [
@@ -44,13 +53,12 @@ const appRoutes: RouteObject[] = [
           { path: 'regelwerke', element: <RulesView /> },
         ],
       },
-      { path: 'turnier', element: <ChampionshipView /> },
-      { path: 'neues-turnier', element: <ChampionshipCreateView /> },
-      { path: 'mitspieler', element: <ChampionshipPlayersView /> },
-      { path: 'tipps', element: <TipsView /> },
-      { path: 'spiele', element: <MatchesView /> },
+      {
+        children: [
+          { path: 'neues-turnier', element: <ChampionshipsCreateView /> },
+        ],
+      },
       { path: 'profil', element: <ProfileView /> },
-
       { path: 'logout', element: <Logout /> },
     ],
   },
