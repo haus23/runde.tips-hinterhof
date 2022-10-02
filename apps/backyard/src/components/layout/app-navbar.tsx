@@ -85,6 +85,7 @@ export default function AppNavbar() {
           <nav className="space-y-1 px-2">
             <NavLink
               to="."
+              end
               className={({ isActive }) =>
                 classNames(
                   isActive
