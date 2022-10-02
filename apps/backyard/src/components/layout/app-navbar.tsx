@@ -12,46 +12,42 @@ import {
 import { useProfile } from '@/hooks/use-profile';
 import { classNames } from '@/utils/class-names';
 import AppTitle from './app-title';
+import { Championship } from 'lib';
+import { useCurrentChampionship } from '@/hooks/use-current-championship';
 
-const navLinks: {
+const championshipNavLinks: {
   to: string;
   icon: ElementType;
   label: string;
-  visible: () => boolean;
+  visible: (championship: Championship | undefined) => boolean;
 }[] = [
-  {
-    to: '.',
-    icon: HomeIcon,
-    label: 'Dashboard',
-    visible: () => true,
-  },
   {
     to: './turnier',
     icon: FolderIcon,
     label: 'Turnier',
-    visible: () => true,
+    visible: (championship) => !!championship,
   },
   {
     to: './mitspieler',
     icon: UsersIcon,
     label: 'Mitspieler',
-    visible: () => true,
+    visible: (championship) => !!championship,
   },
   {
     to: './spiele',
     icon: CalendarIcon,
     label: 'Spiele',
-    visible: () => true,
+    visible: (championship) => !!championship,
   },
   {
     to: './tipps',
     icon: PencilSquareIcon,
     label: 'Tipps',
-    visible: () => true,
+    visible: (championship) => !!championship,
   },
 ];
 
-const masterDataLinks: {
+const masterDataNavLinks: {
   to: string;
   label: string;
 }[] = [
@@ -79,6 +75,7 @@ const masterDataLinks: {
 
 export default function AppNavbar() {
   const { profile } = useProfile();
+  const { currentChampionship: championship } = useCurrentChampionship();
 
   return (
     <>
@@ -86,42 +83,70 @@ export default function AppNavbar() {
         <AppTitle />
         <div className="mt-5 flex-1 flex flex-col justify-between gap-y-4">
           <nav className="space-y-1 px-2">
-            {navLinks.map((item) => (
-              <NavLink
-                key={item.label}
-                to={item.to}
-                className={({ isActive }) =>
-                  classNames(
-                    isActive
-                      ? 'bg-gray-100 text-gray-900'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                    'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
-                  )
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    <item.icon
-                      className={classNames(
-                        isActive
-                          ? 'text-gray-500'
-                          : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6'
-                      )}
-                      aria-hidden="true"
-                    />
-                    {item.label}
-                  </>
-                )}
-              </NavLink>
-            ))}
+            <NavLink
+              to="."
+              className={({ isActive }) =>
+                classNames(
+                  isActive
+                    ? 'bg-gray-100 text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                )
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <HomeIcon
+                    className={classNames(
+                      isActive
+                        ? 'text-gray-500'
+                        : 'text-gray-400 group-hover:text-gray-500',
+                      'mr-3 flex-shrink-0 h-6 w-6'
+                    )}
+                    aria-hidden="true"
+                  />
+                  Dashboard
+                </>
+              )}
+            </NavLink>
+            {championshipNavLinks
+              .filter((item) => item.visible(championship))
+              .map((item) => (
+                <NavLink
+                  key={item.label}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    classNames(
+                      isActive
+                        ? 'bg-gray-100 text-gray-900'
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                    )
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      <item.icon
+                        className={classNames(
+                          isActive
+                            ? 'text-gray-500'
+                            : 'text-gray-400 group-hover:text-gray-500',
+                          'mr-3 flex-shrink-0 h-6 w-6'
+                        )}
+                        aria-hidden="true"
+                      />
+                      {item.label}
+                    </>
+                  )}
+                </NavLink>
+              ))}
           </nav>
           <div>
             <span className="block px-4 font-medium text-gray-500 pb-2 mb-2 border-b border-gray-200">
               Stammdaten
             </span>
             <nav className="space-y-1 px-2">
-              {masterDataLinks.map((item) => (
+              {masterDataNavLinks.map((item) => (
                 <NavLink
                   key={item.label}
                   to={item.to}
