@@ -9,8 +9,8 @@ import { trimProps } from '@/utils/trim-props';
 import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { classNames } from '@/utils/class-names';
-import { League } from '@/model/domain/league';
-import { useLeagues } from '@/hooks/domain/use-leagues';
+import { League } from '@/model/master-data/league';
+import { useLeagues } from '@/hooks/master-data/use-leagues';
 
 export default function LeaguesView() {
   const {
