@@ -1,0 +1,9 @@
+{
+  "name": "eslint-config-workspace",
+  "version": "0.0.0",
+  "main": "index.cjs",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  }
+}
