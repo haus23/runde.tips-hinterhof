@@ -1,0 +1,5 @@
+---
+'backyard': patch
+---
+
+Add linting.
